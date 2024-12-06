@@ -1,0 +1,182 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.gift-circle {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    margin: auto 0;
+}
+
+.gift-container {
+    text-align: center;
+    width: 80px;
+    position: relative;
+}
+
+.gift-wrapper {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gift {
+    font-size: 50px;
+    cursor: pointer;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.gift:hover {
+    transform: scale(1.1);
+}
+
+.gift-owner {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .85rem;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.name-input {
+    max-width: 200px;
+}
+
+.control-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.name-inputs {
+    width: 100%;
+    text-align: center;
+}
+
+.input-controls {
+    margin-bottom: 20px;
+}
+
+#inputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.participant-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.participant-controls button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.participant-count {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.participant-count #personCount {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 移除之前的移動類 */
+.gift-wrapper.moving-left,
+.gift-wrapper.moving-right,
+.gift-wrapper.moving-up,
+.gift-wrapper.moving-down {
+    transform: none;
+}
+
+/* 添加祝賀文字樣式 */
+.congrats-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff4081;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
